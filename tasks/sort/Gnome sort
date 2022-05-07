@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args)
+    {
+        int[] array = new int[] { 2, 12, -34, 123, 22 };
+        System.out.println(Arrays.toString(array));
+        gnomeSort(array);
+        System.out.println(Arrays.toString(array));
+    }
+    public static void gnomeSort(int[] array) {
+        int index = 1;
+        int i = 0;
+        for (; i < array.length - 1;) {
+            if (array[i] <= array[i + 1]) {
+                i = index;
+                index += 1;
+            } else {
+                int temp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
+                i = i - 1;
+                if (i < 0) {
+                    i = index;
+                    index += 1;
+                }
+            }
+        }
+    }
+
+} //Сортировка, которая по порядку выбирает число и "отбрасывает" до такого состояния, когда  число не окажется больше предыдущего и так далее.
